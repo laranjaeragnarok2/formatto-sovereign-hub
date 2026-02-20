@@ -4,10 +4,9 @@ import { ArrowRight, CheckCircle2, LayoutGrid, Maximize, Printer, Hammer, Box, S
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center pt-24 pb-12 overflow-hidden bg-white hero-gradient">
-      {/* Top Brand Stripe */}
-      <div className="absolute top-0 left-0 w-full h-1.5 bg-formatto-blue" />
-      <div className="absolute top-0 left-0 w-1/3 h-1.5 bg-formatto-red z-10" />
+    <section className="relative min-h-screen flex items-center pt-24 pb-12 overflow-hidden bg-white">
+      {/* 🎨 Explosão de Cores (Estética Facebook) */}
+      <div className="absolute top-0 left-0 w-full h-full opacity-20 pointer-events-none explosive-color-bg blur-[100px]" />
       
       <div className="container mx-auto px-6 relative z-10 grid lg:grid-cols-2 gap-16 items-center">
         <motion.div
@@ -18,19 +17,19 @@ export default function Hero() {
           <div className="inline-flex items-center gap-2 px-3 py-1 bg-zinc-100 rounded-sm mb-8">
             <span className="w-2 h-2 rounded-full bg-formatto-red animate-pulse" />
             <span className="text-[10px] font-black uppercase tracking-[0.2em] text-formatto-blue">
-              Sudoeste Goiano | Autoridade em Impressão
+              Sudoeste Goiano | Explosão de Qualidade
             </span>
           </div>
           
-          <h1 className="text-6xl md:text-[120px] font-headline text-formatto-blue leading-[0.8] mb-8 tracking-tighter">
-            ARTE QUE <br />
-            <span className="text-formatto-red italic">IMPRIME</span>. <br />
-            QUALIDADE <br />
-            <span className="text-formatto-accent">EXTREMA</span>.
+          <h1 className="text-6xl md:text-[110px] font-headline text-formatto-blue leading-[0.8] mb-8 tracking-tighter">
+            CORES QUE <br />
+            <span className="text-formatto-red italic">PULSAM</span>. <br />
+            IMPRESSÃO <br />
+            <span className="text-formatto-accent">MONUMENTAL</span>.
           </h1>
           
           <p className="text-xl text-zinc-600 mb-10 max-w-lg leading-relaxed font-light">
-            Da <span className="font-bold text-formatto-blue">Comunicação Visual</span> monumental ao adesivo de precisão. O ecossistema B2B da Formatto une tecnologia industrial e inteligência agêntica para dominar sua região.
+            Inspirados pela vibração das cores reais. O ecossistema B2B da <span className="font-bold text-formatto-blue">Formatto</span> transforma seu projeto em um marco visual inesquecível.
           </p>
           
           <div className="flex flex-wrap gap-5">
@@ -38,22 +37,9 @@ export default function Hero() {
               SOLICITAR ORÇAMENTO
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </button>
-            <button className="btn-outline">
-              Ver Portfólio
+            <button className="px-10 py-4 border-2 border-formatto-blue text-formatto-blue font-bold hover:bg-formatto-blue hover:text-white transition-all duration-500 uppercase text-xs tracking-widest">
+              Nossa Tecnologia
             </button>
-          </div>
-
-          <div className="mt-16 grid grid-cols-2 gap-x-8 gap-y-4 pt-10 border-t border-zinc-100">
-             {[
-               "Adesivos e Rótulos", "Banners e Lonas", 
-               "Fachadas em ACM", "Toldo Cortina",
-               "Corte CNC/Laser", "Plotagem de Frota"
-             ].map((item, i) => (
-               <div key={i} className="flex items-center gap-3">
-                  <CheckCircle2 className="text-formatto-accent w-4 h-4" />
-                  <span className="text-[10px] font-black uppercase tracking-widest text-zinc-400">{item}</span>
-               </div>
-             ))}
           </div>
         </motion.div>
 
@@ -61,46 +47,22 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.2, duration: 1 }}
-          className="relative grid grid-cols-12 gap-4"
+          className="relative"
         >
-          {/* Visual Evidence Mosaic */}
-          <div className="col-span-8 h-[500px] bg-zinc-100 relative group overflow-hidden shadow-2xl border-b-8 border-formatto-blue">
+          {/* Estética de Cores Vibrantes (Penas/Tintas) */}
+          <div className="relative rounded-3xl overflow-hidden shadow-[0_50px_100px_rgba(0,0,0,0.1)] border-8 border-white">
              <img 
-               src="https://images.unsplash.com/photo-1562654501-a0ccc0af3fb1?q=80&w=2070&auto=format&fit=crop" 
-               className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale hover:grayscale-0" 
-               alt="Industrial Print" 
+               src="https://scontent.frvd6-1.fna.fbcdn.net/v/t39.30808-6/470692133_618119397547349_8275584201228905445_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=2a1932&_nc_ohc=ZfP9jGnKNfYQ7kNvwHZsKF4&_nc_oc=AdmAtQPp2dJRFLEfiHt7Vz7AhQxMGM1f4oGrlgy_o2b_HwwhiBhE7dYB_ac-RBxXPIUvqJwUYp_Flu1gdC3g5QRQ&_nc_zt=23&_nc_ht=scontent.frvd6-1.fna&_nc_gid=MOW_UFf2TA5_6UXN0h6Cyg&oh=00_Afutt2QmDFfZHuGgA1PE55LFHuVMvbgMNpik6IUR6HCuLg&oe=699EC617" 
+               className="w-full h-auto" 
+               alt="Formatto Cores Vibrantes" 
              />
-             <div className="absolute inset-0 bg-gradient-to-t from-formatto-blue/90 via-transparent to-transparent opacity-80" />
-             <div className="absolute bottom-8 left-8">
-                <span className="label-red mb-3 block w-fit">Tecnologia UV</span>
-                <h3 className="text-white font-headline text-5xl leading-none">FACHADAS <br/> DE ALTO IMPACTO</h3>
-             </div>
+             <div className="absolute inset-0 bg-gradient-to-t from-formatto-blue/40 to-transparent" />
           </div>
           
-          <div className="col-span-4 flex flex-col gap-4">
-             <div className="h-60 bg-formatto-red p-6 flex flex-col justify-between shadow-xl">
-                <Maximize className="text-white w-8 h-8" />
-                <div className="text-white font-headline text-2xl leading-none">LONAS E <br/> TOLDOS</div>
-             </div>
-             <div className="h-[224px] bg-formatto-accent p-6 flex flex-col justify-between shadow-xl">
-                <LayoutGrid className="text-white w-8 h-8" />
-                <div className="text-white font-headline text-2xl leading-none">ADESIVOS <br/> PREMIUM</div>
-             </div>
-          </div>
-
-          <div className="col-span-12 mt-4 glass-card p-8 border-l-8 border-formatto-red flex items-center justify-between">
-             <div className="flex items-center gap-5">
-                <div className="w-12 h-12 rounded-none bg-formatto-blue flex items-center justify-center">
-                   <Zap className="text-white w-6 h-6" />
-                </div>
-                <div>
-                   <p className="text-[10px] font-black uppercase text-zinc-400 tracking-[0.2em]">Soberania Regional</p>
-                   <p className="text-lg font-headline text-formatto-blue">46 PROJETOS EM ANALISE NO SUDOESTE GOIANO</p>
-                </div>
-             </div>
-             <div className="hidden xl:block text-right">
-                <span className="text-[9px] font-mono text-zinc-400 uppercase tracking-[0.4em]">Powered by Nix Agêntico</span>
-             </div>
+          <div className="absolute -bottom-10 -left-10 glass-card p-8 border-l-8 border-formatto-red max-w-[280px]">
+             <Zap className="text-formatto-red w-8 h-8 mb-4 animate-bounce" />
+             <p className="text-xs font-black uppercase text-formatto-blue tracking-widest mb-2">Fidelidade Cromática</p>
+             <p className="text-[10px] text-zinc-500 leading-tight">O maior parque gráfico de Rio Verde garantindo 100% de precisão na sua marca.</p>
           </div>
         </motion.div>
       </div>
