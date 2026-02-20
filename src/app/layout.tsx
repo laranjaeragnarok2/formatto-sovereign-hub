@@ -33,7 +33,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" className="bg-white">
-      <body className={`${inter.variable} ${bebas.variable} ${jetbrains.variable} font-sans antialiased`}>
+      <body className={`${inter.variable} ${bebas.variable} ${jetbrains.variable} font-sans antialiased text-formatto-dark`}>
         {children}
       </body>
     </html>
