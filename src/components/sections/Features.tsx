@@ -27,7 +27,12 @@ const features = [
 
 export default function Features() {
   return (
-    <section className="section-padding bg-white">
+    <section className="py-40 px-6 md:px-12 lg:px-24 bg-white border-y border-zinc-100 relative">
+      {/* Subtle Background Mark */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white px-8 py-2 border border-zinc-100 text-[10px] font-black uppercase tracking-[0.5em] text-zinc-300">
+        Engineered Quality
+      </div>
+
       <div className="container mx-auto">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
           {features.map((f, i) => (
