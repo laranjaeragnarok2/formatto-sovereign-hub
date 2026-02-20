@@ -1,12 +1,24 @@
 "use client";
 import Hero from "@/components/sections/Hero";
 import Features from "@/components/sections/Features";
-import { motion } from "framer-motion";
-import { ArrowRight, MessageSquare, Phone, MapPin } from "lucide-react";
+import MissionVisionValues from "@/components/sections/MissionVisionValues";
+import RegionalFocus from "@/components/sections/RegionalFocus";
+import { motion, useScroll, useSpring } from "framer-motion";
+import { ArrowRight, MessageSquare } from "lucide-react";
 
 export default function Home() {
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
+
   return (
     <main className="min-h-screen bg-white selection:bg-formatto-red selection:text-white">
+      {/* Scroll Progress Bar (Eyecandy) */}
+      <motion.div className="fixed top-0 left-0 right-0 h-1 bg-formatto-red z-[100] origin-left" style={{ scaleX }} />
+
       {/* Header Corporativo High-End */}
       <header className="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-sm border-b border-zinc-100 h-24 flex items-center">
         <div className="container mx-auto px-6 flex justify-between items-center">
@@ -16,10 +28,10 @@ export default function Home() {
           </div>
           
           <nav className="hidden lg:flex gap-10 text-[10px] font-black uppercase tracking-[0.2em] text-zinc-400">
-            <a href="#" className="hover:text-formatto-blue transition-colors">Portfólio 2026</a>
-            <a href="#" className="hover:text-formatto-blue transition-colors">Tecnologia UV</a>
-            <a href="#" className="hover:text-formatto-blue transition-colors">Expansão Regional</a>
-            <a href="#" className="text-formatto-red">Área B2B</a>
+            <a href="#portfolio" className="hover:text-formatto-blue transition-colors">Portfólio 2026</a>
+            <a href="#tecnologia" className="hover:text-formatto-blue transition-colors">Tecnologia UV</a>
+            <a href="#expansao" className="hover:text-formatto-blue transition-colors">Expansão Regional</a>
+            <a href="#b2b" className="text-formatto-red">Área B2B</a>
           </nav>
           
           <div className="flex items-center gap-6">
@@ -34,56 +46,60 @@ export default function Home() {
         </div>
       </header>
 
-      <Hero />
-      <Features />
+      <div className="space-y-0">
+        <Hero />
+        <Features />
+        <MissionVisionValues />
+        <RegionalFocus />
 
-      {/* Seção de Expansão e Inteligência */}
-      <section className="section-padding bg-zinc-950 text-white overflow-hidden relative">
-         <div className="absolute top-0 right-0 w-full h-full opacity-5 pointer-events-none">
-            <div className="grid grid-cols-12 h-full">
-              {[...Array(12)].map((_, i) => (
-                <div key={i} className="border-r border-white h-full" />
-              ))}
-            </div>
-         </div>
-         
-         <div className="container mx-auto relative z-10 grid lg:grid-cols-2 gap-24">
-            <div>
-              <span className="label-red mb-6 block w-fit">Relatório Sudoeste</span>
-              <h2 className="text-6xl md:text-8xl font-headline mb-8 leading-[0.9]">Mapeamento <br /> de Mercado.</h2>
-              <p className="text-zinc-400 text-lg mb-12 leading-relaxed font-light">
-                A Formatto não apenas imprime; nós lideramos. Através do **Diamante-OS**, já mapeamos 46 oportunidades estratégicas no Sudoeste Goiano que exigem nossa qualidade monumental.
-              </p>
-              
-              <div className="grid grid-cols-2 gap-10">
-                 <div className="border-l-2 border-formatto-red pl-6">
-                    <span className="block text-4xl font-headline text-white">46+</span>
-                    <span className="text-[10px] uppercase tracking-widest text-zinc-500">Empresas Monitoradas</span>
-                 </div>
-                 <div className="border-l-2 border-formatto-accent pl-6">
-                    <span className="block text-4xl font-headline text-white">100%</span>
-                    <span className="text-[10px] uppercase tracking-widest text-zinc-500">Cura UV Garantida</span>
-                 </div>
+        {/* Seção de Expansão e Inteligência */}
+        <section id="expansao" className="py-32 bg-zinc-950 text-white overflow-hidden relative">
+           <div className="absolute top-0 right-0 w-full h-full opacity-5 pointer-events-none">
+              <div className="grid grid-cols-12 h-full">
+                {[...Array(12)].map((_, i) => (
+                  <div key={i} className="border-r border-white h-full" />
+                ))}
               </div>
-            </div>
-            
-            <div className="bg-white/5 border border-white/10 p-12 backdrop-blur-sm relative">
-               <div className="absolute top-0 right-0 w-24 h-24 bg-formatto-blue/20 blur-3xl" />
-               <h3 className="text-3xl font-headline mb-6 text-white tracking-wider">Expandir Marca B2B</h3>
-               <form className="space-y-4">
-                  <input type="text" placeholder="Empresa" className="w-full bg-white/5 border border-white/10 p-4 text-sm focus:border-formatto-accent transition-colors outline-none text-white" />
-                  <input type="email" placeholder="E-mail" className="w-full bg-white/5 border border-white/10 p-4 text-sm focus:border-formatto-accent transition-colors outline-none text-white" />
-                  <textarea placeholder="Descreva seu projeto monumental..." rows={4} className="w-full bg-white/5 border border-white/10 p-4 text-sm focus:border-formatto-accent transition-colors outline-none text-white"></textarea>
-                  <button className="btn-primary w-full flex items-center justify-center gap-3">
-                    SOLICITAR ANALISE TECNICA <ArrowRight className="w-4 h-4" />
-                  </button>
-               </form>
-               <p className="mt-6 text-[9px] uppercase tracking-[0.3em] text-center text-zinc-600">
-                 System Orchestrated by Nix Agêntico
-               </p>
-            </div>
-         </div>
-      </section>
+           </div>
+           
+           <div className="container mx-auto relative z-10 grid lg:grid-cols-2 gap-24 px-6">
+              <div>
+                <span className="label-red mb-6 block w-fit">Relatório Sudoeste</span>
+                <h2 className="text-6xl md:text-8xl font-headline mb-8 leading-[0.9]">MAPEAMENTO <br /> DE MERCADO.</h2>
+                <p className="text-zinc-400 text-lg mb-12 leading-relaxed font-light">
+                  A Formatto não apenas imprime; nós lideramos. Através do **Diamante-OS**, já mapeamos 46 oportunidades estratégicas no Sudoeste Goiano que exigem nossa qualidade monumental.
+                </p>
+                
+                <div className="grid grid-cols-2 gap-10">
+                   <div className="border-l-2 border-formatto-red pl-6">
+                      <span className="block text-4xl font-headline text-white">46+</span>
+                      <span className="text-[10px] uppercase tracking-widest text-zinc-500">Empresas Monitoradas</span>
+                   </div>
+                   <div className="border-l-2 border-formatto-accent pl-6">
+                      <span className="block text-4xl font-headline text-white">100%</span>
+                      <span className="text-[10px] uppercase tracking-widest text-zinc-500">Cura UV Garantida</span>
+                   </div>
+                </div>
+              </div>
+              
+              <div className="bg-white/5 border border-white/10 p-12 backdrop-blur-sm relative">
+                 <div className="absolute top-0 right-0 w-24 h-24 bg-formatto-blue/20 blur-3xl" />
+                 <h3 className="text-3xl font-headline mb-6 text-white tracking-wider uppercase">Expandir Marca B2B</h3>
+                 <form className="space-y-4">
+                    <input type="text" placeholder="Nome da Empresa" className="w-full bg-white/5 border border-white/10 p-4 text-sm focus:border-formatto-accent transition-colors outline-none text-white uppercase tracking-tighter" />
+                    <input type="email" placeholder="E-mail Corporativo" className="w-full bg-white/5 border border-white/10 p-4 text-sm focus:border-formatto-accent transition-colors outline-none text-white uppercase tracking-tighter" />
+                    <textarea placeholder="Descreva seu projeto monumental..." rows={4} className="w-full bg-white/5 border border-white/10 p-4 text-sm focus:border-formatto-accent transition-colors outline-none text-white uppercase tracking-tighter"></textarea>
+                    <button className="btn-primary w-full flex items-center justify-center gap-3 font-black py-5">
+                      SOLICITAR ANÁLISE TÉCNICA <ArrowRight className="w-4 h-4" />
+                    </button>
+                 </form>
+                 <p className="mt-6 text-[9px] uppercase tracking-[0.3em] text-center text-zinc-600">
+                   System Orchestrated by Nix Agêntico
+                 </p>
+              </div>
+           </div>
+        </section>
+      </div>
 
       {/* Agente de Atendimento Nix */}
       <div className="fixed bottom-8 right-8 z-[100]">
