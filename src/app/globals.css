@@ -1,6 +1,21 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --color-background: #050505;
+  --color-foreground: #ffffff;
+  
+  --color-luxury-gold: #D4AF37;
+  --color-luxury-cobalt: #0055FF;
+  --color-luxury-carbon: #0A0A0A;
+  
+  --font-headline: var(--font-bebas), sans-serif;
+  --font-mono: var(--font-jetbrains), monospace;
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+  }
+}
 
 :root {
   --background: #050505;
@@ -12,17 +27,18 @@ body {
   background: var(--background);
 }
 
-.glass-card {
+/* Custom Utilities para o estilo Diamante */
+@utility glass-card {
   background: rgba(10, 10, 10, 0.7);
   backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-.gold-glow {
+@utility gold-glow {
   text-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
 }
 
-.neon-blue-border {
+@utility neon-blue-border {
   box-shadow: 0 0 15px rgba(0, 85, 255, 0.2);
   border: 1px solid rgba(0, 85, 255, 0.4);
 }
