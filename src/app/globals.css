@@ -2,10 +2,11 @@
 @import "leaflet/dist/leaflet.css";
 
 @theme {
-  --color-formatto-blue: #0A1F44;
+  --color-formatto-blue: #00AEEF;
+  --color-formatto-magenta: #EC008C;
+  --color-formatto-yellow: #FFF200;
+  --color-formatto-black: #231F20;
   --color-formatto-red: #E31E24;
-  --color-formatto-accent: #00AEEF;
-  --color-zinc-950: #09090b;
   
   --font-headline: "Bebas Neue", sans-serif;
   --font-mono: "JetBrains Mono", monospace;
@@ -13,7 +14,7 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #0A1F44;
+  --foreground: #231F20;
 }
 
 body {
@@ -21,33 +22,34 @@ body {
   color: var(--foreground);
 }
 
-/* 🎨 Efeito de Cor Explosiva (Capa Facebook) */
-.explosive-color-bg {
-  background: linear-gradient(135deg, #00AEEF 0%, #E31E24 50%, #FFD600 100%);
-  background-size: 200% 200%;
-  animation: gradientShift 8s ease infinite;
+/* 🎨 Efeito Spectrum CMYK (Inspirado na Identidade Visual) */
+.cmyk-gradient {
+  background: linear-gradient(90deg, #00AEEF, #EC008C, #FFF200, #231F20);
 }
 
-@keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+.cmyk-text-gradient {
+  background: linear-gradient(45deg, #00AEEF, #EC008C, #FFF200);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.hero-vibrant-overlay {
-  background: linear-gradient(to bottom, rgba(255,255,255,0.8), transparent);
+.hero-vibrant-bg {
+  background: radial-gradient(circle at 0% 0%, rgba(0, 174, 239, 0.08), transparent),
+              radial-gradient(circle at 100% 100%, rgba(236, 0, 140, 0.08), transparent);
 }
 
-.btn-primary {
-  @apply bg-formatto-blue text-white px-8 py-4 font-bold tracking-widest hover:bg-formatto-red transition-all duration-500 rounded-none uppercase;
+.btn-formatto {
+  @apply bg-formatto-black text-white px-10 py-5 font-black tracking-widest hover:bg-formatto-blue transition-all duration-500 rounded-none uppercase text-sm shadow-xl;
 }
 
 .glass-card {
-  @apply bg-white/40 backdrop-blur-xl border border-white/20 shadow-2xl;
+  @apply bg-white/60 backdrop-blur-xl border border-zinc-100 shadow-2xl;
 }
 
-.map-placeholder-bg {
-  background-image: url('https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?q=80&w=2066&auto=format&fit=crop');
-  background-size: cover;
-  background-position: center;
+.label-cmyk {
+  @apply inline-flex items-center gap-1 px-3 py-1 bg-zinc-100 rounded-full border border-zinc-200;
+}
+
+.cmyk-dot {
+  @apply w-2 h-2 rounded-full;
 }
