@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
-import { ArrowRight, CheckCircle2, LayoutGrid, Maximize, Printer, Tool, Box, ShieldCheck, Zap } from "lucide-react";
+import { ArrowRight, CheckCircle2, LayoutGrid, Maximize, Printer, Box, ShieldCheck, Zap } from "lucide-react";
 
 export default function Hero() {
   return (
