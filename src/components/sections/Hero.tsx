@@ -1,79 +1,83 @@
 "use client";
 import { motion } from "framer-motion";
-import { Zap, ShieldCheck, Cpu, ArrowRight } from "lucide-react";
+import { ArrowRight, Printer, Shield, Globe, BarChart } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 bg-background">
-      {/* Background Decorativo */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-        <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-luxury-cobalt/20 rounded-full blur-[150px] animate-pulse" />
-        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-luxury-gold/10 rounded-full blur-[130px]" />
-      </div>
-
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-5xl mx-auto text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-          >
-            <div className="flex justify-center mb-8">
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-luxury-cobalt/30 bg-luxury-cobalt/10 text-luxury-cobalt text-[10px] font-mono tracking-[0.3em] uppercase">
-                <span className="w-1.5 h-1.5 rounded-full bg-luxury-cobalt animate-ping" />
-                Sudoeste Goiano | Hub B2B
-              </span>
-            </div>
-            
-            <h1 className="text-6xl md:text-[100px] font-headline text-white mb-6 leading-[0.9] tracking-tighter">
-              A AUTORIDADE <span className="text-luxury-gold gold-glow">VISUAL</span> <br /> 
-              DA PRÓXIMA GERAÇÃO
-            </h1>
-            
-            <p className="text-xl md:text-2xl text-zinc-500 font-light mb-12 max-w-3xl mx-auto leading-relaxed">
-              O ecossistema de impressão de elite orquestrado pelo <span className="text-white font-bold tracking-widest">DIAMANTE-OS</span>. 
-              Transformamos marcas em soberanas regionais.
-            </p>
-          </motion.div>
-
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5, duration: 1 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-6"
-          >
-            <button className="group relative px-10 py-5 bg-luxury-gold text-black font-black text-sm rounded-none hover:bg-white transition-all duration-500 uppercase tracking-widest flex items-center gap-3">
-              Analisar meu Projeto
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-zinc-50">
+      {/* Decorative Elements */}
+      <div className="absolute top-0 right-0 w-1/2 h-full bg-formatto-blue/5 skew-x-12 translate-x-1/4" />
+      
+      <div className="container mx-auto px-6 relative z-10 grid md:grid-cols-2 gap-12 items-center">
+        <motion.div
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <span className="inline-block px-3 py-1 bg-formatto-blue/10 text-formatto-blue text-xs font-bold tracking-widest uppercase mb-6 rounded">
+            Líder em Comunicação Visual B2B
+          </span>
+          <h1 className="text-7xl md:text-8xl font-headline text-formatto-dark leading-none mb-6">
+            TECNOLOGIA QUE <br />
+            <span className="text-formatto-blue">IMPULSIONA</span> <br />
+            SUA MARCA.
+          </h1>
+          <p className="text-xl text-zinc-600 mb-8 max-w-lg leading-relaxed">
+            Unimos a melhor infraestrutura de impressão do Sudoeste Goiano com inteligência agêntica para entregas que superam o padrão de mercado.
+          </p>
+          
+          <div className="flex flex-wrap gap-4">
+            <button className="btn-primary flex items-center gap-2">
+              ORÇAMENTO B2B <ArrowRight className="w-4 h-4" />
             </button>
-            <button className="px-10 py-5 border border-white/10 hover:border-white/40 hover:bg-white/5 transition-all duration-500 font-bold text-sm uppercase tracking-widest">
-              Explorar Hub Tecnológico
+            <button className="px-8 py-4 border-2 border-formatto-blue text-formatto-blue font-bold hover:bg-formatto-blue hover:text-white transition-all">
+              CONHECER EQUIPAMENTOS
             </button>
-          </motion.div>
-
-          {/* Cards de Inteligência */}
-          <div className="mt-32 grid grid-cols-1 md:grid-cols-3 gap-8">
-             {[
-               { icon: <Cpu className="w-8 h-8" />, title: "IA OPTIMIZED", desc: "Fluxos de orçamento e produção minerados pelo Agente Nix." },
-               { icon: <Zap className="w-8 h-8" />, title: "PRECISION GEAR", desc: "O mais alto padrão de maquinário CNC e Laser do estado." },
-               { icon: <ShieldCheck className="w-8 h-8" />, title: "SOVEREIGN DATA", desc: "Segurança total no armazenamento e gestão de seus ativos visuais." }
-             ].map((item, i) => (
-               <motion.div 
-                 key={i}
-                 initial={{ opacity: 0, scale: 0.95 }}
-                 whileInView={{ opacity: 1, scale: 1 }}
-                 viewport={{ once: true }}
-                 transition={{ delay: 0.3 + (i * 0.1) }}
-                 className="glass-card p-10 text-left border-white/5 hover:border-luxury-cobalt/30 transition-all duration-700 group relative"
-               >
-                 <div className="absolute top-0 left-0 w-1 h-0 bg-luxury-cobalt group-hover:h-full transition-all duration-700" />
-                 <div className="text-luxury-gold mb-6 group-hover:text-luxury-cobalt transition-colors duration-500">{item.icon}</div>
-                 <h3 className="text-xl font-headline text-white mb-3 tracking-wider">{item.title}</h3>
-                 <p className="text-zinc-500 text-sm leading-relaxed">{item.desc}</p>
-               </motion.div>
-             ))}
           </div>
-        </div>
+          
+          <div className="mt-12 flex items-center gap-8 grayscale opacity-60">
+            <span className="text-xs font-bold text-zinc-400 uppercase tracking-widest">Atendimento Regional:</span>
+            <span className="text-sm font-bold">RIO VERDE</span>
+            <span className="text-sm font-bold">JATAÍ</span>
+            <span className="text-sm font-bold">MINEIROS</span>
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.2, duration: 1 }}
+          className="relative"
+        >
+          <div className="aspect-[4/5] bg-zinc-200 rounded-lg overflow-hidden shadow-2xl relative">
+            <img 
+              src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop" 
+              alt="High-end Printing" 
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-formatto-dark/60 to-transparent" />
+            
+            {/* Agente Nix Overlay */}
+            <div className="absolute bottom-6 left-6 right-6 glass-panel p-6 rounded-none border-l-4 border-luxury-gold">
+               <div className="flex items-center gap-3 mb-2">
+                 <div className="w-2 h-2 bg-green-500 rounded-full animate-ping" />
+                 <span className="text-[10px] font-mono font-bold text-formatto-blue">AGENTE NIX: ONLINE</span>
+               </div>
+               <p className="text-sm font-medium text-zinc-800">
+                 "Otimizando 46 novos projetos de expansão no Sudoeste Goiano hoje."
+               </p>
+            </div>
+          </div>
+          
+          {/* Badge de Soberania */}
+          <div className="absolute -top-6 -right-6 w-32 h-32 bg-luxury-gold flex items-center justify-center rounded-full shadow-2xl rotate-12">
+            <div className="text-center">
+              <span className="block text-xs font-black text-black leading-none">TECH</span>
+              <span className="block text-2xl font-bold text-black tracking-tighter">ELITE</span>
+              <span className="block text-[8px] font-bold text-black opacity-60">SOVEREIGN</span>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
