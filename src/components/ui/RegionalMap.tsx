@@ -38,7 +38,7 @@ export default function RegionalMap() {
           url="https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}"
         />
         
-        {/* Raio de 200km - Cobrindo Rio Verde até Mineiros */}
+        {/* Raio de 300km - Cobrindo Rio Verde até Mineiros */}
         <Circle
           center={rioVerdePos}
           pathOptions={{ 
@@ -48,7 +48,7 @@ export default function RegionalMap() {
             opacity: 0.8, 
             fillOpacity: 0.15,
           }}
-          radius={200000} 
+          radius={300000} 
         />
 
         <Marker position={rioVerdePos}>
@@ -81,7 +81,7 @@ export default function RegionalMap() {
       {/* Dossiê de Cobertura */}
       <div className="absolute top-6 right-6 z-[1000] bg-formatto-blue text-white p-4 shadow-2xl">
          <p className="text-[10px] font-black uppercase tracking-[0.2em] opacity-60">Status de Operação</p>
-         <p className="text-xl font-headline tracking-widest">RAIO 200KM</p>
+         <p className="text-xl font-headline tracking-widest">RAIO 300KM</p>
       </div>
     </div>
   );
