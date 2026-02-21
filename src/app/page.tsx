@@ -24,7 +24,7 @@ export default function Home() {
             <div className="container mx-auto px-6 flex justify-between items-center">
                <div className="flex flex-col group cursor-pointer">
                   <span className="text-3xl font-headline tracking-tighter text-formatto-black leading-none group-hover:text-formatto-blue transition-colors">FORMATTO</span>
-                  <span className="text-[9px] font-black uppercase tracking-[0.4em] text-zinc-400">Comunicação Visual</span>
+                  <span className="text-xs font-black uppercase tracking-[0.3em] text-zinc-500">Impressão & Comunicação Visual</span>
                </div>
 
                <nav className="hidden lg:flex gap-10 text-[10px] font-black uppercase tracking-[0.2em] text-zinc-400">
@@ -36,10 +36,10 @@ export default function Home() {
 
                <div className="flex items-center gap-6">
                   <div className="hidden sm:flex flex-col items-end">
-                     <span className="text-[9px] font-bold text-zinc-300 uppercase tracking-widest text-right">Rio Verde - GO</span>
-                     <span className="text-xs font-black text-formatto-black hover:text-formatto-blue transition-colors cursor-pointer">(64) 3612-7777</span>
+                     <span className="text-xs font-bold text-zinc-500 uppercase tracking-widest text-right">Rio Verde - GO</span>
+                     <span className="text-sm font-black text-formatto-black hover:text-formatto-blue transition-colors cursor-pointer">(64) 3612-7777</span>
                   </div>
-                  <button className="text-[10px] font-black uppercase tracking-widest px-8 py-4 bg-formatto-black text-white hover:bg-formatto-magenta transition-all duration-500 shadow-xl">
+                  <button className="text-xs font-black uppercase tracking-widest px-8 py-4 bg-formatto-black text-white hover:bg-formatto-magenta transition-all duration-500 shadow-xl">
                      Falar com Especialista
                   </button>
                </div>
@@ -64,7 +64,7 @@ export default function Home() {
 
                <div className="container mx-auto relative z-10 grid lg:grid-cols-2 gap-24 px-6">
                   <div>
-                     <span className="bg-formatto-magenta text-white px-3 py-1 text-[10px] font-black uppercase tracking-widest mb-6 block w-fit">Relatório Estratégico</span>
+                     <span className="bg-formatto-magenta text-white px-4 py-2 text-xs font-black uppercase tracking-widest mb-6 block w-fit">Assessoria B2B</span>
                      <h2 className="text-6xl md:text-[100px] font-headline mb-8 leading-[0.85] tracking-tighter">TRANSFORME <br /> SEU PONTO.</h2>
                      <p className="text-zinc-400 text-xl mb-12 leading-relaxed font-light max-w-lg">
                         Lideramos a comunicação visual do Sudoeste Goiano com entregas monumentais. Sua marca merece a visibilidade que só a nossa infraestrutura industrial pode oferecer.
@@ -73,11 +73,11 @@ export default function Home() {
                      <div className="grid grid-cols-2 gap-10">
                         <div className="border-l-2 border-formatto-magenta pl-6">
                            <span className="block text-4xl font-headline text-white">300KM</span>
-                           <span className="text-[10px] uppercase tracking-widest text-zinc-500">Raio de Atendimento</span>
+                           <span className="text-[10px] uppercase tracking-widest text-zinc-500">Raio de Atendimento Rápido</span>
                         </div>
                         <div className="border-l-2 border-formatto-blue pl-6">
                            <span className="block text-4xl font-headline text-white">100%</span>
-                           <span className="text-[10px] uppercase tracking-widest text-zinc-500">Qualidade Garantida</span>
+                           <span className="text-[10px] uppercase tracking-widest text-zinc-500">Agilidade e Precisão</span>
                         </div>
                      </div>
                   </div>
@@ -87,16 +87,16 @@ export default function Home() {
                      <h3 className="text-4xl font-headline mb-8 text-white tracking-wider uppercase leading-none">Análise Visual <br /> de Marca B2B</h3>
                      <form className="space-y-6">
                         <div>
-                           <label className="text-[10px] font-black uppercase text-zinc-500 mb-2 block tracking-widest">Sua Empresa</label>
+                           <label className="text-xs font-black uppercase text-zinc-400 mb-2 block tracking-widest">Sua Empresa</label>
                            <input type="text" placeholder="EX: EMPRESA AGRO" className="w-full bg-white/5 border border-white/10 p-5 text-sm focus:border-formatto-blue transition-all outline-none text-white uppercase tracking-widest font-bold" />
                         </div>
                         <div>
-                           <label className="text-[10px] font-black uppercase text-zinc-500 mb-2 block tracking-widest">E-mail Corporativo</label>
+                           <label className="text-xs font-black uppercase text-zinc-400 mb-2 block tracking-widest">E-mail Corporativo</label>
                            <input type="email" placeholder="CONTATO@EMPRESA.COM.BR" className="w-full bg-white/5 border border-white/10 p-5 text-sm focus:border-formatto-blue transition-all outline-none text-white uppercase tracking-widest font-bold" />
                         </div>
                         <div>
-                           <label className="text-[10px] font-black uppercase text-zinc-500 mb-2 block tracking-widest">Descreva sua Necessidade</label>
-                           <textarea placeholder="FACHADA, ADESIVAÇÃO DE FROTA, LETREIROS..." rows={3} className="w-full bg-white/5 border border-white/10 p-5 text-sm focus:border-formatto-blue transition-all outline-none text-white uppercase tracking-widest font-bold"></textarea>
+                           <label className="text-xs font-black uppercase text-zinc-400 mb-2 block tracking-widest">Descreva sua Necessidade</label>
+                           <textarea placeholder="FACHADA, ADESIVOS, BANNERS..." rows={3} className="w-full bg-white/5 border border-white/10 p-5 text-sm focus:border-formatto-blue transition-all outline-none text-white uppercase tracking-widest font-bold"></textarea>
                         </div>
                         <button className="w-full bg-white text-formatto-black flex items-center justify-center gap-3 font-black py-6 hover:bg-formatto-magenta hover:text-white transition-all duration-500 shadow-xl">
                            SOLICITAR CONSULTORIA <ArrowRight className="w-5 h-5" />
@@ -114,7 +114,7 @@ export default function Home() {
                   <div>
                      <div className="flex flex-col mb-8">
                         <span className="text-4xl font-headline tracking-tighter text-formatto-black leading-none">FORMATTO</span>
-                        <span className="text-[10px] font-black uppercase tracking-[0.4em] text-zinc-300">Rio Verde - GO</span>
+                        <span className="text-xs font-black uppercase tracking-[0.4em] text-zinc-400">Rio Verde - GO</span>
                      </div>
                      <p className="text-sm text-zinc-400 font-light leading-relaxed mb-8">
                         A maior infraestrutura industrial de comunicação visual do Sudoeste. Qualidade monumental em cada pixel impresso.
@@ -194,8 +194,8 @@ export default function Home() {
                <MessageSquare className="w-6 h-6" />
                <div className="absolute -top-1 -right-1 w-3 h-3 bg-formatto-magenta rounded-full" />
 
-               <div className="absolute right-20 bg-formatto-black text-white px-6 py-3 text-[10px] font-black uppercase tracking-widest whitespace-nowrap shadow-2xl opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-x-5 group-hover:translate-x-0 border-l-4 border-formatto-blue">
-                  Consultoria B2B
+               <div className="absolute right-20 bg-formatto-black text-white px-6 py-3 text-xs font-black uppercase tracking-widest whitespace-nowrap shadow-2xl opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-x-5 group-hover:translate-x-0 border-l-4 border-formatto-blue">
+                  Atendimento Expresso
                </div>
             </motion.button>
          </div>

@@ -9,9 +9,9 @@ const features = [
     desc: "Utilizamos o sistema CMYK de alta fidelidade para garantir que as cores da sua marca sejam impressas com perfeição absoluta."
   },
   {
-    icon: <Zap className="w-8 h-8" />,
-    title: "Tecnologia de Ponta",
-    desc: "Maquinário industrial CNC e Laser para cortes milimétricos em ACM, acrílico, metais e grandes formatos."
+    icon: <Zap className="w-8 h-8 text-formatto-yellow" />,
+    title: "Produção Acelerada",
+    desc: "Parque gráfico industrial de alta velocidade para entregas em prazos recordes, sem abrir mão da precisão milimétrica."
   },
   {
     icon: <Truck className="w-8 h-8" />,
@@ -35,7 +35,7 @@ export default function Features() {
       <div className="container mx-auto">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
           {features.map((f, i) => (
-            <motion.div 
+            <motion.div
               key={i}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
