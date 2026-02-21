@@ -1,87 +1,28 @@
 "use client";
-import { MapContainer, TileLayer, Circle, Marker, Popup } from "react-leaflet";
-import L from "leaflet";
-import "leaflet/dist/leaflet.css";
-import { useEffect, useState } from "react";
 
 export default function RegionalMap() {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-    // Fix for Leaflet default icons
-    delete (L.Icon.Default.prototype as any)._getIconUrl;
-    L.Icon.Default.mergeOptions({
-      iconRetinaUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png",
-      iconUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png",
-      shadowUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
-    });
-  }, []);
-
-  const rioVerdePos: [number, number] = [-17.7946, -50.9208];
-  const mineirosPos: [number, number] = [-17.5623, -52.5511];
-  const jataiPos: [number, number] = [-17.8814, -51.7144];
-
-  if (!mounted) return null;
-
   return (
-    <div className="w-full h-full min-h-[500px] rounded-3xl overflow-hidden shadow-2xl border-4 border-white relative z-10 bg-zinc-200">
-      <MapContainer 
-        center={rioVerdePos} 
-        zoom={8} 
-        scrollWheelZoom={false} 
-        style={{ height: "100%", width: "100%" }}
-      >
-        {/* Google Maps Hybrid/Satellite Style Tiles via Leaflet */}
-        <TileLayer
-          attribution='&copy; Google Maps'
-          url="https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}"
-        />
-        
-        {/* Raio de 300km - Cobrindo Rio Verde até Mineiros */}
-        <Circle
-          center={rioVerdePos}
-          pathOptions={{ 
-            fillColor: '#E31E24', 
-            color: '#E31E24', 
-            weight: 3, 
-            opacity: 0.8, 
-            fillOpacity: 0.15,
-          }}
-          radius={300000} 
-        />
-
-        <Marker position={rioVerdePos}>
-          <Popup>
-            <div className="text-center">
-              <strong className="text-formatto-blue">HUB CENTRAL: RIO VERDE</strong><br/>
-              Sede Administrativa e Industrial
-            </div>
-          </Popup>
-        </Marker>
-
-        <Marker position={mineirosPos}>
-          <Popup>
-            <div className="text-center">
-              <strong className="text-formatto-red">EXPANSÃO: MINEIROS</strong><br/>
-              Polo Estratégico B2B
-            </div>
-          </Popup>
-        </Marker>
-
-        <Marker position={jataiPos}>
-          <Popup>
-            <div className="text-center">
-              <strong>LOGÍSTICA: JATAÍ</strong>
-            </div>
-          </Popup>
-        </Marker>
-      </MapContainer>
+    <div className="w-full h-full min-h-[500px] rounded-3xl overflow-hidden shadow-2xl border-4 border-white relative z-10 bg-zinc-200 group">
+      {/* Google Maps Embed via Iframe */}
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d120937.58434789505!2d-51.040224672661555!3d-17.794680877969854!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9361d152a4208a8d%3A0xbd86241a877ff1b1!2sRio%20Verde%2C%20GO!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr"
+        width="100%"
+        height="100%"
+        style={{ border: 0, minHeight: "500px" }}
+        allowFullScreen={false}
+        loading="lazy"
+        referrerPolicy="no-referrer-when-downgrade"
+        className="absolute inset-0 grayscale-[20%] contrast-125 transition-all duration-700 group-hover:grayscale-0"
+      ></iframe>
 
       {/* Dossiê de Cobertura */}
-      <div className="absolute top-6 right-6 z-[1000] bg-formatto-blue text-white p-4 shadow-2xl">
-         <p className="text-[10px] font-black uppercase tracking-[0.2em] opacity-60">Status de Operação</p>
-         <p className="text-xl font-headline tracking-widest">RAIO 300KM</p>
+      <div className="absolute top-6 right-6 z-[1000] bg-formatto-blue text-white p-4 shadow-2xl pointer-events-none">
+        <p className="text-[10px] font-black uppercase tracking-[0.2em] opacity-60">Status de Operação</p>
+        <p className="text-xl font-headline tracking-widest">RAIO 300KM</p>
+      </div>
+
+      <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 z-20 bg-formatto-magenta text-white px-8 py-3 text-[9px] font-mono tracking-[0.4em] uppercase shadow-2xl pointer-events-none">
+        HUB CENTRAL: RIO VERDE - GO
       </div>
     </div>
   );
